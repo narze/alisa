@@ -10,7 +10,7 @@ _alisa() {
     echo "\n"
 
     if [[ $REPLY =~ ^(Y|y) ]]; then
-      #Get shortened command (using first letter of each word)
+      # Get shortened command (using first letter of each word)
       cmd_short=$(echo $cmd | awk '{for (i=1;i<=NF;i++) printf(substr($i,1,1))}')
       # echo "Cmd short is $cmd_short"
 
@@ -18,10 +18,11 @@ _alisa() {
       if alias $cmd_short 2>/dev/null >/dev/null ; then
         echo "$cmd_short is already set as an alias ($(alias $cmd_short))"
       else
-        echo "$cmd_short is usable"
+        # Alias command
+        alias $cmd_short=$cmd
+        echo "Set alias $cmd_short for command : $cmd"
       fi
 
-      #TODO: Alias command
       #TODO: Add alias into ~/.alisa for later use
     fi
   fi
