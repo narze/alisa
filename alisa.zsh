@@ -21,9 +21,10 @@ _alisa() {
         # Alias command
         alias $cmd_short=$cmd
         echo "Set alias $cmd_short for command : $cmd"
-      fi
 
-      #TODO: Add alias into ~/.alisa for later use
+        # Add alias into ~/.alisa for later use
+        echo "alias $cmd_short='$cmd'" >> "$HOME/.alisa"
+      fi
     fi
   fi
 }
