@@ -6,7 +6,7 @@ _alisa() {
   cmd_len=${#cmd}
 
   if (( $cmd_len > 6 )); then
-    read -q "REPLY?This command is too long! Do you want me to alias it? (Y/n) "
+    read -q "REPLY?This command is too long! Do you want me to alias it? (y/N) "
 
     if [[ $REPLY =~ ^(Y|y) ]]; then
       echo "yes"
