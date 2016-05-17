@@ -7,7 +7,7 @@ _alisa() {
 
   if (( $cmd_len > 6 )); then
     read -q "REPLY?This command is too long! Do you want me to alias it? (y/N) "
-    echo "/n"
+    echo "\n"
 
     if [[ $REPLY =~ ^(Y|y) ]]; then
       #Get shortened command (using first letter of each word)
