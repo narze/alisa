@@ -14,7 +14,13 @@ _alisa() {
       cmd_short=$(echo $cmd | awk '{for (i=1;i<=NF;i++) printf(substr($i,1,1))}')
       # echo "Cmd short is $cmd_short"
 
-      #TODO: Check if command is not already aliased
+      # Check if command is not already aliased
+      if alias $cmd_short 2>/dev/null >/dev/null ; then
+        echo "$cmd_short is already set as an alias ($(alias $cmd_short))"
+      else
+        echo "$cmd_short is usable"
+      fi
+
       #TODO: Alias command
       #TODO: Add alias into ~/.alisa for later use
     fi
