@@ -9,8 +9,10 @@ _alisa() {
     read -q "REPLY?This command is too long! Do you want me to alias it? (y/N) "
 
     if [[ $REPLY =~ ^(Y|y) ]]; then
-      echo "yes"
-      #TODO: Get shortened command (using first letter of each word)
+      #Get shortened command (using first letter of each word)
+      cmd_short=$(echo $cmd | awk '{for (i=1;i<=NF;i++) printf(substr($i,1,1))}')
+      # echo "Cmd short is $cmd_short"
+
       #TODO: Check if command is not already aliased
       #TODO: Alias command
       #TODO: Add alias into ~/.alisa for later use
