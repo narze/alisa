@@ -1,8 +1,11 @@
 _alisa() {
-  #TODO: Skip if same command was ran < 3 times
-  #TODO: Skip if already alias'ed
-
   cmd="$*"
+
+  # Skip if already alias'ed
+  if alias $cmd 2>/dev/null >/dev/null ; then
+    return
+  fi
+
   cmd_len=${#cmd}
 
   if (( $cmd_len > 6 )); then
