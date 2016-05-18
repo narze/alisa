@@ -7,6 +7,12 @@ _alisa() {
   fi
 
   cmd_len=${#cmd}
+  cmd_count=$(history | grep -o $cmd | wc -l) # Not working if using ignoredups/erasedups
+
+  # Skip if same command was ran < 3 times
+  if (( $cmd_count < 3 )); then
+    return
+  fi
 
   if (( $cmd_len > 6 )); then
     read -q "REPLY?This command is too long! Do you want me to alias it? (y/N) "
